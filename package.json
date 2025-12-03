@@ -1,0 +1,44 @@
+{
+  "name": "polymarket-ts-bot",
+  "version": "1.0.0",
+  "description": "Polymarket Trading Bot in TypeScript",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/main.js",
+    "dev": "ts-node src/main.ts",
+    "auto-trade": "ts-node src/auto_trading_bot.ts",
+    "check-balance": "ts-node src/check_balance.ts",
+    "gen-creds": "ts-node src/generate_credentials.ts",
+    "credentials": "ts-node src/credential_generator.ts",
+    "allowance": "ts-node src/allowance.ts",
+    "bid-ask": "ts-node src/bid_asker.ts",
+    "market": "ts-node src/market_finder.ts",
+    "order": "ts-node src/market_order.ts"
+  },
+  "keywords": [
+    "polymarket",
+    "trading",
+    "bot",
+    "typescript"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@ethersproject/providers": "^5.8.0",
+    "@ethersproject/wallet": "^5.8.0",
+    "@polymarket/clob-client": "^4.22.8",
+    "@types/ws": "^8.18.1",
+    "axios": "^1.13.2",
+    "dotenv": "^17.2.3",
+    "rpc-validator": "^1.0.1",
+    "ethers": "^5.7.2",
+    "ws": "^8.18.3"
+  }
+}
