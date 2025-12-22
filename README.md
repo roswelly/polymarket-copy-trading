@@ -1,4 +1,4 @@
-# Polymarket Copy Trading Bot
+# Polymarket Trading Bot | Polymarket Arbitrage Bot
 
 A TypeScript-based trading bot for Polymarket prediction markets on Polygon. This bot provides both interactive and automated trading capabilities with comprehensive market analysis, order management, and risk controls.
 
