@@ -4,7 +4,13 @@ A **real-time copy trading bot** for **Polymarket** that monitors a target walle
 
 ---
 
-## Support the Project
+## Consult
+
+For consulting, feel free to reach out to me:
+
+**Telegram**: [@roswellecho](https://t.me/roswellecho)
+
+## Support Me
 
 If you find this bot helpful and profitable, I am really appreciate your support! Consider sending 11% of your profits to help maintain and improve this project:
 
@@ -324,14 +330,6 @@ npm run format
 * Automatic retry mechanisms for failed orders
 * MongoDB-based trade history tracking
 * Support for multiple market types
-
----
-
-## Contact & Support
-
-For deployment support, custom integrations, or professional inquiries:
-
-**Telegram**: [@roswellecho](https://t.me/roswellecho)
 
 ---
 
