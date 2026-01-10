@@ -1,6 +1,5 @@
-# Polymarket Copy Trading Bot
-
-A **real-time copy trading bot** for **Polymarket** that monitors a target wallet and mirrors its trades from your proxy wallet, with basic risk controls and persistence via MongoDB. Built with **TypeScript** on **Node.js**, and executes via Polymarket’s **Central Limit Order Book (CLOB)** API.
+# Polymarket Copy Trading Bot | Polymarket Arbitrage Bot
+A **polymarket copy trading bot** and **polymarket arbitrage bot** that monitors a target wallet and mirrors its trades from your proxy wallet, with basic risk controls and persistence via MongoDB. Built with **TypeScript** on **Node.js**, and executes via Polymarket’s **Central Limit Order Book (CLOB)** API.
 
 ---
 
@@ -18,26 +17,13 @@ If you find this bot helpful and profitable, I am really appreciate your support
 
 ---
 
-## Overview
-
-The Polymarket Copy Trading Bot continuously monitors target wallets and replicates their trading activity according to configurable risk parameters. It is designed for **professional deployment**, supporting automated trade execution, precise order handling, and comprehensive logging.
-
 ### Core Capabilities
-
 * **Real-Time Trade Monitoring** – Continuously fetches and processes trades from target wallets
 * **Automatic Trade Execution** – Mirrors buy/sell/merge operations with intelligent position matching
 * **Advanced Risk Management** – Balance-based position sizing and retry mechanisms
 * **Flexible Order Execution** – Supports FOK (Fill-or-Kill) order types
 * **MongoDB Integration** – Persistent tracking of trades and positions
 * **Multi-Outcome Compatibility** – Works seamlessly with binary and multi-outcome markets
-
----
-
-## Proof of Ownership
-
-The following image demonstrates ownership and control of the trading system:
-
-<img width="1121" height="663" alt="Proof of ownership" src="https://github.com/user-attachments/assets/c10a8253-4198-4316-a52f-7e9e85c9d907" />
 
 ---
 
