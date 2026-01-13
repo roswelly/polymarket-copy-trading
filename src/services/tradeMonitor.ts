@@ -46,10 +46,8 @@ const fetchTradeData = async () => {
         
         const activities: UserActivityInterface[] = activities_raw;
 
-        // Filter for TRADE type activities only
         const trades = activities.filter((activity) => activity.type === 'TRADE');
 
-        // Get existing transaction hashes from database to avoid duplicates
         const existingDocs = await UserActivity.find({}, { transactionHash: 1 }).exec();
         const existingHashes = new Set(
             existingDocs
@@ -57,10 +55,8 @@ const fetchTradeData = async () => {
                 .filter((hash): hash is string => Boolean(hash))
         );
 
-        // Calculate cutoff timestamp (too old trades) - hours ago in milliseconds
         const cutoffTimestamp = Date.now() - TOO_OLD_TIMESTAMP * 60 * 60 * 1000;
 
-        // Filter new trades that aren't too old
         const newTrades = trades.filter((trade: UserActivityInterface) => {
             const isNew = !existingHashes.has(trade.transactionHash);
             const isRecent = trade.timestamp >= cutoffTimestamp;
@@ -70,7 +66,7 @@ const fetchTradeData = async () => {
         if (newTrades.length > 0) {
             console.log(`Found ${newTrades.length} new trade(s) to process`);
             
-            // Save new trades to database
+            // Save new trades to 
             for (const trade of newTrades) {
                 const activityData = {
                     ...trade,
