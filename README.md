@@ -13,13 +13,6 @@ A **polymarket copy trading bot** that monitors a target wallet and mirrors its 
 <img width="466" height="193" alt="image" src="https://github.com/user-attachments/assets/906e4b31-5284-4518-88a2-07fa7b305713" />
 
 ---
-
-## Consult
-
-For consulting, feel free to reach out to me fore latest version with new strategey and also can implement your own strategy with rust and python:
-
-**Telegram**: [@roswellecho](https://t.me/roswellecho)
-
 ## Support Me
 
 If you find this bot helpful and profitable, I am really appreciate your support! Consider sending 11% of your profits to help maintain and improve this project:
@@ -109,20 +102,4 @@ npm run lint:fix
 npm run format
 ```
 ---
-
-### Common Issues
-
-1. **"USER_ADDRESS is not defined"**
-   - Check your `.env` file exists and has all required variables
-
-2. **"Cannot find module '@polymarket/clob-client'"**
-   - Run `npm install` to install dependencies
-
-3. **"invalid hexlify value"**
-   - Check `PRIVATE_KEY` is 64 hex characters without `0x` prefix
-
-4. **"API Key creation failed"**
-   - Verify `PRIVATE_KEY` matches `PROXY_WALLET`
-   - Ensure wallet has proper permissions
-
-
+Now working on latest version if you need latest one let's chat on telegram [@roswellecho](https://t.me/roswellecho)
