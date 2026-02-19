@@ -13,7 +13,9 @@ It lasts a week and started losing. So now I am working on performance improveme
 not perfect now but it's stable with decent result.
 
 <img width="463" height="194" alt="image" src="https://github.com/user-attachments/assets/97c5b62c-9a2a-47f3-b899-32ea45f6e34b" />
+
 ---
+
 ## Configuration Reference
 
 | Variable              | Description                                    | Required |
@@ -31,11 +33,6 @@ not perfect now but it's stable with decent result.
 
 ---
 
-### Start Copy Trading
-
-```bash
-npm run dev
-```
 ### Trading Strategies
 
 I just dive into polymarketk trading bots since December last year. 
@@ -55,6 +52,4 @@ Let's keep grinding together
 * **Error Handling**: Retry failed orders up to RETRY_LIMIT, then mark as failed
 ---
 
-
----
-Now working on latest version if you need latest one let's chat on telegram [@roswellecho](https://t.me/roswellecho)
+Please contact me on [@roswellecho](https://t.me/roswellecho) for more discussion, purchase, collaboration
