@@ -7,12 +7,14 @@ It also has it's own strategy for trading on 5m, 15m, 1h crypto markets
 
 ## Performance
 
+This is snapshort for copy trading with top traders on polyomarket
+
 <img width="463" height="194" alt="image" src="https://github.com/user-attachments/assets/97c5b62c-9a2a-47f3-b899-32ea45f6e34b" />
 <img width="458" height="193" alt="image" src="https://github.com/user-attachments/assets/d9825078-bbcc-41f6-b51c-982eeb8b8595" />
 <img width="466" height="193" alt="image" src="https://github.com/user-attachments/assets/906e4b31-5284-4518-88a2-07fa7b305713" />
-T
-his is snapshort for copy trading with top traders on polyomarket. The was the most perfect result ever among test so far.
-Now working on performance improvement since got discovered pitfall
+
+These were the most perfect result ever among test so far for **Daily PnL**.
+It lasts a week and started losing. So now I am working on performance improvement since got discovered pitfall
 not perfect now but it's stable with decent result
 
 ---
