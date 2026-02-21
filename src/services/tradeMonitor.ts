@@ -25,70 +25,38 @@ const init = async () => {
 
 const fetchTradeData = async () => {
     try {
-        // Fetch user activities from Polymarket API
         const activities_raw = await fetchData(
             `https://data-api.polymarket.com/activities?user=${USER_ADDRESS}`
         );
+        if (!Array.isArray(activities_raw) || activities_raw.length === 0) return;
 
-        // Validate API response is an array
-        if (!Array.isArray(activities_raw)) {
-            if (activities_raw === null || activities_raw === undefined) {
-                // Network error or empty response - already handled by fetchData
-                return;
-            }
-            console.warn('API returned non-array response, skipping...');
-            return;
-        }
-        
-        if (activities_raw.length === 0) {
-            return;
-        }
-        
-        const activities: UserActivityInterface[] = activities_raw;
-
-        const trades = activities.filter((activity) => activity.type === 'TRADE');
-
+        const trades = activities_raw.filter((a) => a.type === 'TRADE') as UserActivityInterface[];
         const existingDocs = await UserActivity.find({}, { transactionHash: 1 }).exec();
         const existingHashes = new Set(
-            existingDocs
-                .map((doc: { transactionHash?: string | null }) => doc.transactionHash)
-                .filter((hash): hash is string => Boolean(hash))
+            existingDocs.map((d: { transactionHash?: string | null }) => d.transactionHash).filter(Boolean) as string[]
         );
+        const cutoff = Date.now() - TOO_OLD_TIMESTAMP * 60 * 60 * 1000;
 
-        const cutoffTimestamp = Date.now() - TOO_OLD_TIMESTAMP * 60 * 60 * 1000;
-
-        const newTrades = trades.filter((trade: UserActivityInterface) => {
-            const isNew = !existingHashes.has(trade.transactionHash);
-            const isRecent = trade.timestamp >= cutoffTimestamp;
-            return isNew && isRecent;
-        });
-
-        if (newTrades.length > 0) {
-            console.log(`Found ${newTrades.length} new trade(s) to process`);
-            
-            // Save new trades to 
-            for (const trade of newTrades) {
-                const activityData = {
-                    ...trade,
-                    proxyWallet: USER_ADDRESS,
-                    bot: false,
-                    botExcutedTime: 0,
-                };
-                await UserActivity.create(activityData);
-                console.log(`Saved new trade: ${trade.transactionHash}`);
-            }
+        const newTrades = trades.filter((t) => !existingHashes.has(t.transactionHash) && t.timestamp >= cutoff);
+        for (const trade of newTrades) {
+            await UserActivity.create({
+                ...trade,
+                proxyWallet: USER_ADDRESS,
+                bot: false,
+                botExcutedTime: 0,
+            });
+            console.log('new trade', trade.transactionHash);
         }
-    } catch (error) {
-        console.error('Error fetching trade data:', error);
+    } catch (err) {
+        console.error('fetch trades', err);
     }
 };
 
 const tradeMonitor = async () => {
-    console.log('Trade Monitor is running every', FETCH_INTERVAL, 'seconds');
-    await init();    //Load my oders before sever downs
+    await init();
     while (true) {
-        await fetchTradeData();     //Fetch all user activities
-        await new Promise((resolve) => setTimeout(resolve, FETCH_INTERVAL * 1000));     //Fetch user activities every second
+        await fetchTradeData();
+        await new Promise((r) => setTimeout(r, FETCH_INTERVAL * 1000));
     }
 };
 
