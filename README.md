@@ -1,7 +1,7 @@
 # Polymarket Copy Trading Bot | Polymarket Trading Bot
 
 A **polymarket copy trading bot** that monitors a target wallet and mirrors its trades from your proxy wallet, via Polymarket **Central Limit Order Book (CLOB)** API.
-It also has it's own strategy for trading on 5m, 15m, 1h crypto markets
+It also has it's own strategy for trading on **politics**, **sports**, **weather**, **crypto** markets
 
 ---
 
