@@ -28,17 +28,17 @@ npm install
 Copy `env.example` to `.env` and fill in your details:
 
 ```env
-USER_ADDRESS=0xTargetWalletToCopy
-PROXY_WALLET=0xYourWallet
+USER_ADDRESS=0xTargetWalletAddressToCopy
+PROXY_WALLET=0xYourWalletAddress
 PRIVATE_KEY=your_private_key
 CLOB_HTTP_URL=https://clob.polymarket.com
 CLOB_WS_URL=wss://clob-ws.polymarket.com
-MONGO_URI=mongodb://localhost:27017/polymarket_copytrading
+MONGO_URI=mongodb://localhost:27017/polymarket_copy_trading
 RPC_URL=https://polygon-rpc.com
 USDC_CONTRACT_ADDRESS=0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174
 FETCH_INTERVAL=1
 TOO_OLD_TIMESTAMP=24
-RETRY_LIMIT=3
+RETRY_LIMIT=4
 ```
 
 Then build and run:
