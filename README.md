@@ -12,7 +12,43 @@ These were the most perfect result ever among test so far for **Daily PnL**.
 It lasts a week and started losing. So now I am working on performance improvement since got discovered pitfall
 not perfect now but it's stable with decent result.
 
-<img width="463" height="194" alt="image" src="https://github.com/user-attachments/assets/97c5b62c-9a2a-47f3-b899-32ea45f6e34b" />
+
+---
+
+## Installation
+
+You'll need Node.js 18+, MongoDB, and a funded Polygon wallet.
+
+```bash
+git clone https://github.com/LemnLabs/polymarket-trading-bot.git
+cd polymarket-trading-bot
+npm install
+```
+
+Copy `env.example` to `.env` and fill in your details:
+
+```env
+USER_ADDRESS=0xTargetWalletToCopy
+PROXY_WALLET=0xYourWallet
+PRIVATE_KEY=your_private_key
+CLOB_HTTP_URL=https://clob.polymarket.com
+CLOB_WS_URL=wss://clob-ws.polymarket.com
+MONGO_URI=mongodb://localhost:27017/polymarket_copytrading
+RPC_URL=https://polygon-rpc.com
+USDC_CONTRACT_ADDRESS=0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174
+FETCH_INTERVAL=1
+TOO_OLD_TIMESTAMP=24
+RETRY_LIMIT=3
+```
+
+Then build and run:
+
+```bash
+npm run build
+npm start
+```
+
+Or use `npm run dev` for development with ts-node.
 
 ---
 
